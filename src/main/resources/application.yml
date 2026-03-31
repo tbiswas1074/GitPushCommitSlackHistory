@@ -16,4 +16,8 @@ spring:
 
 slack:
   webhook:
+<<<<<<< HEAD
     url: YOUR_SLACK_WEBHOOK_URL
+=======
+    url: ${SLACK_WEBHOOK_URL}
+>>>>>>> 437b268 (Removed Slack webhook secret)
