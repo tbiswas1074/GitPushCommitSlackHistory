@@ -26,4 +26,5 @@ public class GithubWebhookController {
         githubService.processPushEvent(payload);
         return ResponseEntity.ok().build();
     }
+
 }
