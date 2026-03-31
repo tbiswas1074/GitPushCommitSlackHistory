@@ -49,8 +49,6 @@ public class GithubService {
             entity.setCommitId(commit.getId());
             entity.setMessage(commit.getMessage());
             entity.setAuthor(author);
-
-            OffsetDateTime odt = OffsetDateTime.parse(commit.getTimestamp());
             entity.setTimestamp(
                     commit.getTimestamp() != null
                             ? OffsetDateTime.parse(commit.getTimestamp()).toLocalDateTime()
