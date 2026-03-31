@@ -11,14 +11,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/webhook/github")
+@RequiredArgsConstructor
 public class GithubWebhookController {
 
     private final GithubService githubService;
-
-    public GithubWebhookController(GithubService githubService) {
-        this.githubService = githubService;
-    }
-
 
     @PostMapping
     public ResponseEntity<Void> handlePush(
