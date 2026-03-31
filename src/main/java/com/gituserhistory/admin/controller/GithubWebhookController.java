@@ -1,6 +1,7 @@
 package com.gituserhistory.admin.controller;
 
 
+import com.gituserhistory.admin.dto.GithubPushEvent;
 import com.gituserhistory.admin.service.GithubService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,17 +14,20 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/webhook/github")
-@RequiredArgsConstructor
 public class GithubWebhookController {
 
     private final GithubService githubService;
 
+    public GithubWebhookController(GithubService githubService) {
+        this.githubService = githubService;
+    }
+
 
     @PostMapping
     public ResponseEntity<Void> handlePush(
-            @RequestBody Map<String, Object> payload) {
+            @RequestBody GithubPushEvent event) {
 
-        githubService.processPushEvent(payload);
+        githubService.processPushEvent(event);
         return ResponseEntity.ok().build();
     }
 
