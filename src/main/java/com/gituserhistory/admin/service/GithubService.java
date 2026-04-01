@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 
 
 @Service
@@ -50,9 +51,9 @@ public class GithubService {
             entity.setMessage(commit.getMessage());
             entity.setAuthor(author);
             entity.setTimestamp(
-                    commit.getTimestamp() != null
-                            ? commit.getTimestamp()
-                            : LocalDateTime.now()
+                    Optional.ofNullable(commit.getTimestamp())
+                            .map(OffsetDateTime::toLocalDateTime)
+                            .orElse(LocalDateTime.now())
             );
 
             commitRepo.save(entity);
