@@ -51,9 +51,9 @@ public class GithubService {
             entity.setMessage(commit.getMessage());
             entity.setAuthor(author);
             entity.setTimestamp(
-                    OffsetDateTime.from(Optional.ofNullable(commit.getTimestamp())
-                            .map(OffsetDateTime::toLocalDateTime)
-                            .orElse(LocalDateTime.now()))
+                    commit.getTimestamp() != null
+                            ? commit.getTimestamp()
+                            : OffsetDateTime.now()
             );
 
             commitRepo.save(entity);
