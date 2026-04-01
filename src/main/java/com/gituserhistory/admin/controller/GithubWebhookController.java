@@ -7,8 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/webhook/github")
 @RequiredArgsConstructor
@@ -28,5 +26,4 @@ public class GithubWebhookController {
         githubService.processPushEvent(event);
         return ResponseEntity.ok().build();
     }
-
 }
