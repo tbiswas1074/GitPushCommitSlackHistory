@@ -9,10 +9,8 @@ import com.gituserhistory.admin.repository.AuthorRepository;
 import com.gituserhistory.admin.repository.CommitRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.util.Optional;
+
 
 
 @Service
