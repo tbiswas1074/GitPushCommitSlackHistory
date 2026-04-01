@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity
 @Data
@@ -20,7 +21,7 @@ public class CommitEntity {
 
     private String commitId;
     private String message;
-    private LocalDateTime timestamp;
+    private OffsetDateTime timestamp;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
