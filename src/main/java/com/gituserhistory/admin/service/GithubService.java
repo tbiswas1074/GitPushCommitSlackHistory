@@ -28,7 +28,7 @@ public class GithubService {
 
         StringBuilder summary = new StringBuilder();
 
-        summary.append("*New GitHub Push Detected*\n\n");
+//        summary.append("*New GitHub Push Detected*\n\n");
         summary.append("*GitHub User:* ").append(githubUser).append("\n\n");
         summary.append("*Commits:*\n");
 
@@ -51,7 +51,7 @@ public class GithubService {
             entity.setAuthor(author);
             entity.setTimestamp(
                     commit.getTimestamp() != null
-                            ? OffsetDateTime.parse(commit.getTimestamp()).toLocalDateTime()
+                            ? commit.getTimestamp()
                             : LocalDateTime.now()
             );
 
